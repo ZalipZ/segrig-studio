@@ -64,7 +64,7 @@ starlette==0.38.6
 uvicorn==0.30.6
 pydantic==2.9.2
 
-
+```
 
 ## 🛠️ Installation
 
@@ -75,3 +75,64 @@ Open `Anaconda Prompt` or `Miniconda Prompt` and run:
 ```bash
 conda create -n segrig python=3.11 -y
 conda activate segrig
+```
+
+**2. Install PyTorch**
+You must install the `CUDA 12.1` build of PyTorch first and separately:
+```bash
+pip install torch==2.4.1 torchvision==0.19.1 --index-url [https://download.pytorch.org/whl/cu121](https://download.pytorch.org/whl/cu121)
+```
+
+**3. Install LangSAM**
+Install `Lang-SAM (which pulls in GroundingDINO and SAM2)` directly from the source:
+```bash
+pip install git+[https://github.com/luca-medeiros/lang-segment-anything.git](https://github.com/luca-medeiros/lang-segment-anything.git)
+```
+
+**4. Install Remaining Dependencies**
+Install the rest of the required libraries using the `requirements.txt` file created earlier:
+```bash
+pip install -r requirements.txt
+```
+
+## 🚀 How to Run
+
+**Start_SegRig.bat**
+Create a file named `Start_SegRig.bat` (this will be your one-click launcher)::
+```bash
+@echo off
+:: Locate Conda path to initialize the environment
+IF EXIST "%USERPROFILE%\miniconda3\Scripts\activate.bat" (
+    call "%USERPROFILE%\miniconda3\Scripts\activate.bat"
+) ELSE IF EXIST "%USERPROFILE%\anaconda3\Scripts\activate.bat" (
+    call "%USERPROFILE%\anaconda3\Scripts\activate.bat"
+) ELSE IF EXIST "C:\ProgramData\miniconda3\Scripts\activate.bat" (
+    call "C:\ProgramData\miniconda3\Scripts\activate.bat"
+) ELSE (
+    echo "Conda path not found! Please open Anaconda Prompt manually."
+    pause
+    exit
+)
+
+:: Activate the environment and run the server
+call conda activate segrig
+cd /d C:\AI\app
+python segrig_studio.py
+pause
+```
+
+# Simply double-click the Start_SegRig.bat file you created.
+The script will automatically locate your Conda installation, activate the segrig environment, and launch the local server
+The Gradio UI will be accessible through your web browser at http://127.0.0.1:7860/
+Note: On the very first run, the system will download the AI models (LangSAM and Stable Diffusion 1.5), which may take some time depending on your internet connection
+
+## 🎨 After Effects Workflow
+
+#Once processing is complete and the `.psd` file is exported:
+1.Open After Effects and go to File → Import → File.
+2.Select the exported PSD file.
+3.In the Import Kind dialogue, ensure you select Composition – Retain Layer Sizes.
+4.The anchor point of each layer will be perfectly centered on its respective part, ready for immediate rigging.
+
+
+
