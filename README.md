@@ -1,7 +1,7 @@
 # 🎬 SegRig Studio
 
 > ⚠️ **Work In Progress:** This project is currently in active development. Some features, systems, or fallback mechanisms might be incomplete, unstable, or subject to change.
-> [![Built with Claude](https://img.shields.io/badge/Built%20with-Claude-7B61FF?style=flat-square&logo=anthropic&logoColor=white)](https://claude.ai/)
+>> 🤖 **AI-Assisted Project:** The core logic, memory optimization, and UI structure of this project were developed with the assistance of [Claude AI](https://claude.ai/).
 
 **SegRig Studio** is a local web application designed for automated 2D character rigging prep. It leverages AI to segment characters from an image into individual transparent layers and reconstructs the missing background, streamlining the workflow for Motion Graphics and Virtual Production.
 
