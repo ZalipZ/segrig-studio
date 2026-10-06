@@ -63,3 +63,15 @@ fastapi==0.115.0
 starlette==0.38.6
 uvicorn==0.30.6
 pydantic==2.9.2
+
+
+
+## 🛠️ Installation
+
+This project requires **Python 3.10 or 3.11** (SAM2 does not build cleanly on Python 3.12). Installing via Miniconda or Anaconda is highly recommended.
+
+**1. Create the Environment**
+Open `Anaconda Prompt` or `Miniconda Prompt` and run:
+```bash
+conda create -n segrig python=3.11 -y
+conda activate segrig
